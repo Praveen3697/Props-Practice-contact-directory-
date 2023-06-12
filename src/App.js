@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Card from "./Card";
+import contacts from "./contacts";
+
+function createCard(contact) {
+  return (
+    <Card
+      key={contact.id}
+      id={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      tel={contact.phone}
+      mail={contact.email}
+    />
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>My Contacts</h1>
+      {contacts.map(createCard)}
     </div>
   );
 }
